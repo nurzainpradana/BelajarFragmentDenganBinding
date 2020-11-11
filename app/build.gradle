@@ -51,9 +51,12 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$supportlibVersion"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "com.google.android.material:material:1.2.1"
+
 
     // Library Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.1"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.1"
+
+    // Library Material IO
+    implementation "com.google.android.material:material:1.2.1"
 }
