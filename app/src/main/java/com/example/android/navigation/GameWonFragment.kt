@@ -16,6 +16,7 @@
 
 package com.example.android.navigation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +42,24 @@ class GameWonFragment : Fragment() {
         // Memanggil nilai yang dikirim lewat arguments
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
         Toast.makeText(context, "Num Correct : ${args.numCorrect}, Num Questions : ${args.numQuestions}", Toast.LENGTH_SHORT).show()
-        return binding.root
 
+        // Menambah Menu
+        setHasOptionsMenu(true)
+
+        return binding.root
+    }
+
+    private fun getIntent(): Intent {
+        val args = GameWonFragmentArgs.fromBundle(requireArguments())
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain")
+                // Memasukkan variabel nilai ke dalam resource String
+                .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text, args.numCorrect, args.numQuestions))
+        return shareIntent
+    }
+
+    // Function untuk menjalankan intent yang sudah dibuat
+    private fun startShareIntent() {
+        startActivity(getIntent())
     }
 }
