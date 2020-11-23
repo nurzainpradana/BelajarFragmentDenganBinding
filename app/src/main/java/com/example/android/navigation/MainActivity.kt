@@ -17,6 +17,7 @@
 package com.example.android.navigation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
         NavigationUI.setupWithNavController(binding.navigationView, navController)
+        Log.i("Main Activity", "onCreate() triggered")
     }
 
     // TODO (01) Create the new TitleFragment`
@@ -56,5 +58,28 @@ class MainActivity : AppCompatActivity() {
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.i("Main Activity", "onStart() triggered")
+    }
 
+    override fun onResume() {
+        super.onResume()
+        Log.i("Main Activity", "onResume() triggered")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("Main Activity", "onPause() triggered")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("Main Activity", "onDestroy() triggered")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("Main Activity", "onStop() triggered")
+    }
 }

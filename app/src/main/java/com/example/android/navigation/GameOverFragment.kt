@@ -16,7 +16,9 @@
 
 package com.example.android.navigation
 
+import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +37,42 @@ class GameOverFragment : Fragment() {
             view ->
             view.findNavController().navigate(R.id.action_gameOverFragment2_to_gameFragment)
         }
+        Log.i("GameOverFragment", "onCreateView() triggered")
         return binding.root
+    }
+
+    override fun onAttach(activity: Activity) {
+        super.onAttach(activity)
+        Log.i("GameOverFragment", "onAttach() triggered")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i("GameOverFragment", "onCreate() triggered")
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.i("GameOverFragment", "onViewCreated() triggered")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("GameOverFragment", "onStart() triggered")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.i("GameOverFragment", "onDestroyView() triggered")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("GameOverFragment", "onDestroy() triggered")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.i("GameOverFragment", "onDetach() triggered")
     }
 }
